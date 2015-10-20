@@ -1,10 +1,7 @@
 #include <iostream>
-using std::cout;
-using std::cin;
-using std::endl;
+using namespace std;
 int main(int argc, char *argv[]) {
-	for (int i = 1; i < )
-		cout << i << endl;
-
+	for (int i = 1; argv[i]; ++i)
+		cout << argv[i] << endl;
 	return 0;
 }
