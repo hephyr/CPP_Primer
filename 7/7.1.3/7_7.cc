@@ -11,9 +11,6 @@ int main() {
                 total.combine(trans);
             else {
                 print(cout, total) << endl;
-                // total.bookNo = trans.bookNo;
-                // total.units_sold = trans.units_sold;
-                // total.revenue = trans.revenue;
                 total = trans;
             }
         }
