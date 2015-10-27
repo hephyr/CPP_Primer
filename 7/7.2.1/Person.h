@@ -2,13 +2,13 @@
 #define PERSON_H
 #include <iostream>
 #include <string>
-struct Person {
+class Person {
     friend std::istream& read(std::istream& is, Person pon);
     friend std::ostream& print(std::ostream& os, Person pon);
 public:
     Person() = default;
-    Person(const string &s) : name(s) { }
-    Person(const string &s, const string &as) :
+    Person(const std::string &s) : name(s) { }
+    Person(const std::string &s, const std::string &as) : 
            name(s), address(as) { }
     std::string PrintName() const {return name;}
     std::string PrintAddress() const {return address;}
