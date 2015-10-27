@@ -6,7 +6,7 @@ public:
     typedef std::string::size_type pos;
     Screen() = default;
     Screen(pos ht, pos wd) :
-           hight(ht), width(wd), contents(ht*wd, " ") { };
+           hight(ht), width(wd), contents(ht*wd, ' ') { };
     Screen(pos ht, pos wd, char c) :
            hight(ht), width(wd), contents(ht*wd, c) { };
 private:
