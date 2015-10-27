@@ -7,9 +7,9 @@ public:
     typedef std::string::size_type pos;
     Screen() = default;
     Screen(pos ht, pos wd) :
-           hight(ht), width(wd), contents(ht*wd, ' ') { };
+           height(ht), width(wd), contents(ht*wd, ' ') { };
     Screen(pos ht, pos wd, char c) :
-           hight(ht), width(wd), contents(ht*wd, c) { };
+           height(ht), width(wd), contents(ht*wd, c) { };
     inline Screen move(pos r, pos c);
     inline Screen set(char ch);
     inline Screen set(pos r, pos c, char ch);
@@ -20,7 +20,7 @@ public:
 private:
     void do_display(std::ostream &os) const {os << contents;}
     pos cursor = 0;
-    pos hight = 0, width = 0;
+    pos height = 0, width = 0;
     std::string contents;
 };
 inline Screen Screen::move(pos r, pos c) {

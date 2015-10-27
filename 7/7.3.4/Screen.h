@@ -2,14 +2,19 @@
 #define SCREEN_H
 #include <iostream>
 #include <string>
+#include <vector>
+class Window_mgr;
 class Screen {
 public:
+    friend void Window_mgr::clear(ScreenIndex i);
     typedef std::string::size_type pos;
     Screen() = default;
     Screen(pos ht, pos wd) :
            height(ht), width(wd), contents(ht*wd, ' ') { };
     Screen(pos ht, pos wd, char c) :
            height(ht), width(wd), contents(ht*wd, c) { };
+    char get() const {return contents[cursor];}
+    char get(pos ht, pos wd) const {return contents[cursor];}
     inline Screen &move(pos r, pos c);
     inline Screen &set(char ch);
     inline Screen &set(pos r, pos c, char ch);
@@ -35,5 +40,17 @@ inline Screen &Screen::set(char ch) {
 inline Screen &Screen::set(pos r, pos col, char ch) {
     contents[r*width + col] = ch;
     return *this;
+}
+
+class Window_mgr {
+public:
+    using ScreenIndex = std::vector<Screen>::size_type;
+    void clear(ScreenIndex i);
+private:
+    std::vector<Screen> screens{Screen(24, 80, ' ')};
+};
+void Window_mgr::clear(ScreenIndex i) {
+    Screen &s = screens[i];
+    s.contents = std::string(s.height * s.width, ' ');
 }
 #endif //SCREEN_H
