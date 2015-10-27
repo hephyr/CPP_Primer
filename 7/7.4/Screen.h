@@ -31,6 +31,7 @@ public:
         do_display(os);
         return *this;
     }
+    inline pos size() const;
 private:
     void do_display(std::ostream &os) const {os << contents;}
     pos cursor = 0;
@@ -50,6 +51,7 @@ inline Screen &Screen::set(pos r, pos col, char ch) {
     contents[r*width + col] = ch;
     return *this;
 }
+inline Screen::pos Screen::size() const {return height*width;}
 void Window_mgr::clear(ScreenIndex i) {
     Screen &s = screens[i];
     s.contents = std::string(s.height * s.width, ' ');
