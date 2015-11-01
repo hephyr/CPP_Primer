@@ -12,9 +12,7 @@ std::istringstream &func(std::istringstream &is) {
 }
 
 int main() {
-	std::string line;
-	std::cin >> line;
-	std::istringstream record(line);
-    istream &is = func(record);
+	std::istringstream iss("HelloWorld");
+    istream &is = func(iss);
     return 0;
 }
