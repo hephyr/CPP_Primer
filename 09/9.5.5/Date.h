@@ -32,7 +32,7 @@ Date::Date(const std::string s) {
         if( s.find("Nov") < s.size() )  month =11;
         if( s.find("Dec") < s.size() )  month =12;
         day = std::stoi(s.substr(s.find_first_of(" ") + 1, s.find_first_of(",") - s.find_first_of(" ")));
-        year = std::stoi(s.substr(s.find_first_of(",")));
+        year = std::stoi(s.substr(s.find_first_of(",") + 1));
     } else {
         if (s.find_first_of(" ") != std::string::npos) {
             if( s.find("Jan") < s.size() )  month = 1;
