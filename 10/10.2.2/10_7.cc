@@ -12,6 +12,7 @@ int main() {
 	int i;
 	while (std::cin >> i)
 		lst.push_back(i);
-	copy(lst.cbegin(), lst.cend(), vec);
+	vec.resize(lst.size());
+	std::copy(lst.cbegin(), lst.cend(), vec.begin());
 	return 0;
 }
