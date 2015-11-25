@@ -36,7 +36,7 @@ void biggies(vector<string> &words, vector<string>::size_type sz) {
     				  [sz](const string &a)
     				  { return a.size() >= sz; });
     auto count = words.end() - wc;
-    cout << count << make_plural(count, "word", "s")
+    cout << count << make_plural(count, " word", "s")
     	 << " of length " << sz << " or longer" << endl;
     for_each(wc, words.end(),
     		 [](const string &s){ cout << s << " "; });
