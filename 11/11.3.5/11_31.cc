@@ -4,7 +4,7 @@
 
 using std::cout; using std::cin;
 using std::endl; using std::string;
-using std::map;
+using std::multimap;
 int main() {
     multimap<string, string> book;
     int a;
@@ -13,6 +13,7 @@ int main() {
         cout << "1.Add book" << endl;
         cout << "2.Delete" << endl;
         cout << "0.Quit" << endl;
+        cout << ">";
         cin >> a;
         switch(a) {
             case 1:
@@ -23,14 +24,24 @@ int main() {
                 book.insert({author, bookname});
             break;
             case 2:
-                cout << endl << "AUTHOR" << endl;
+                cout << endl << "LIST" << endl;
                 for (auto it = book.begin(); it != book.end(); ++it) {
-                    cout << it->first << endl;
+                    cout << "author : " << it->first ;
+                    cout << "  book : " << it->second << endl;
                 }
-                cout << endl << "wi"
+                cout << endl << "witch author?" << endl << ">";
+                cin >> author;
+                cout << endl << "which book?" << endl << ">";
+                cin >> bookname;
+                for (auto pos = book.equal_range(author); pos.first != pos.second; ++pos.first) {
+                    if (pos.first->second == bookname) {
+                        book.erase(pos.first);
+                    }
+                }
+                
             break;
             case 3:
-                exit();
+                exit(0);
             break;
         }
     }
